@@ -19,7 +19,7 @@ I was able to understand the logic of the game complete with minimal hurdles *(r
 
 ### Challenges
 One of the challenges I faced was figuring out how to determine a 3-in-a-row. Ultimately decided upon using a switch/when to handle each position (1-9). This is a fairly bloated and repetitive system but it solved the issue of finding a winning condition. <br>
-I also found trouble in structuring the classes and methods. I did not know at first how many classes/methods I would need and where the methods would rely with respect to the classes. I took an hour to write up a general plan which can be found [here](https://github.com/shanedgilbert/Tic-Tac-Toe/blob/master/pseudo_code.txt).
+I also found trouble in structuring the classes and methods. I did not know at first how many classes/methods I would need and where the methods would rely with respect to the classes. I took an hour to write up a general plan which can be found [here](https://github.com/shanedgilbert/Tic-Tac-Toe/blob/master/pseudo_code.md).
 
 ## Version History
 1.0 completed 7/6/2020
