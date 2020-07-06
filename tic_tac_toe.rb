@@ -1,5 +1,8 @@
+# Core class for running Tic-Tac-Toe
+# Prompts the players for their names
+# Runs the game by creating an instance of game.rb (Game.new) and calling its run method
+# Author: Shane Gilbert
 require_relative "game"
-require_relative "game_logic"
 
 # Initalizes game and asks for player names
 puts "Welcome to Tic-Tac-Toe"

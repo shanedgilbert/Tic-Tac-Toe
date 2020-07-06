@@ -1,3 +1,10 @@
+# Handles the logic of Tic-Tac-Toe
+# initialize: Creates a board instance variable
+# update(piece, position): Updates the board with new pieces (x/o)
+# display: displays the baord in a 3x3 grid
+# take_turn(player): Prompts the player for their move. Checks for valid inputs and returns the position
+# Author: Shane Gilbert
+
 class GameLogic
   attr_reader :position, :board
 
@@ -6,19 +13,21 @@ class GameLogic
     @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
-  #Updates the new 'piece' in the 'position' of the array
+  #Updates the new 'piece' in the 'position' of the array. Returns false if position already taken
   def update(piece, position)
     #Corrects for zero-based array
     position = position - 1
-    if @board[position / 3][position % 3] == position
+    if @board[position / 3][position % 3] == position + 1
       #Updates the array for the new 'piece'
       @board[position / 3][position % 3] = piece
-    else break
+      return true
+    else return false
     end
   end
 
-  #Checks for three in a row (Winning game)
+  #Checks for three in a row (Winning game). Can probably be done in a better way
   def check(position)
+    puts position
     case position
     when 1
       if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
@@ -46,59 +55,58 @@ class GameLogic
       else return false
       end
     when 4
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[1][0] == @board[0][0] and @board[1][0] == @board[2][0]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
-        return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[1][0] == @board[1][1] and @board[1][0] == @board[1][2]
         return true
       else return false
       end
     when 5
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[1][1] == @board[0][0] and @board[1][1] == @board[2][2]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
+      elsif @board[1][1] == @board[1][0] and @board[1][1] == @board[1][2]
         return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[1][1] == @board[0][1] and @board[1][1] == @board[2][1]
+        return true
+      elsif @board[1][1] == @board[0][2] and @board[1][1] == @board[2][0]
         return true
       else return false
       end
     when 6
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[1][2] == @board[0][2] and @board[1][2] == @board[2][2]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
-        return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[1][2] == @board[1][0] and @board[1][2] == @board[1][1]
         return true
       else return false
       end
     when 7
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[2][0] == @board[0][0] and @board[2][0] == @board[1][0]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
+      elsif @board[2][0] == @board[1][1] and @board[2][0] == @board[0][2]
         return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[2][0] == @board[2][1] and @board[2][0] == @board[2][2]
         return true
       else return false
       end
     when 8
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[2][1] == @board[2][0] and @board[2][1] == @board[2][2]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
-        return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[2][1] == @board[0][1] and @board[2][1] == @board[1][1]
         return true
       else return false
       end
     when 9
-      if @board[0][0] == @board[0][1] and @board[0][0] == @board[0][2]
+      if @board[2][2] == @board[2][0] and @board[2][2] == @board[2][1]
         return true
-      elsif @board[0][0] == @board[1][0] and @board[0][0] == @board[2][0]
+      elsif @board[2][2] == @board[0][0] and @board[2][2] == @board[1][1]
         return true
-      elsif @board[0][0] == @board[1][1] and @board[0][0] == @board[2][2]
+      elsif @board[2][2] == @board[0][2] and @board[2][2] == @board[1][2]
         return true
       else return false
       end
+    else
+      puts "Error: Switch has a bug"
+    end
   end
 
   #displays the board as a 3x3 grid
@@ -143,5 +151,4 @@ class GameLogic
     else return true
     end
   end
-
 end
